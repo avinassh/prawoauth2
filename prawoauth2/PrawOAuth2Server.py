@@ -18,6 +18,7 @@ class AuthorizationHandler(tornado.web.RequestHandler):
     def get(self):
         global CODE
         CODE = self.get_argument('code')
+        self.write('successful (:')
         tornado.ioloop.IOLoop.current().stop()
 
 
