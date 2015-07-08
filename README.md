@@ -1,5 +1,9 @@
 # prawoauth2
 
+[![version](https://img.shields.io/pypi/v/prawoauth2.svg)](https://pypi.python.org/pypi/prawoauth2/)
+[![supported](https://img.shields.io/pypi/pyversions/prawoauth2.svg)](https://pypi.python.org/pypi/prawoauth2/)
+![license](https://img.shields.io/pypi/l/prawoauth2.svg)
+
 `prawoauth2` is a helper library which makes writing Reddit bots/apps using OAuth2 super easy and simple.
 
 ## Installation
@@ -12,7 +16,7 @@
 
 Why it is written like that? If you are writing a bot and running it on a headless server, something like Amazon AWS or Openshift, you cannot authorize your script with the Reddit account, as it tries to open the browser for authorization. This is one time only operation(if you pass the parameter `permanent`). So, I decided to break this into two parts. Run the `PrawOAuth2Server` locally on your computer, get the `access_token`, `refresh_token`  and save them somewhere. Later, `PrawOAuth2Mini` can make use of these tokens for further transactions. And it does not require browser at all, so that it can run in a headless server without any hiccups.
 
-TLDR; `PrawOAuth2Server` meant to be run only once locally on your main machine to fetch the first `access_token`, `refresh_token` and `PrawOAuth2Mini` later and for everything. 
+**TLDR;** `PrawOAuth2Server` meant to be run only once locally on your main machine to fetch the first `access_token`, `refresh_token` and `PrawOAuth2Mini` later and for everything. 
 
 ## Usage
 
