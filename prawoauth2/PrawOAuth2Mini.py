@@ -8,7 +8,7 @@ __all__ = ['PrawOAuth2Mini']
 
 REDIRECT_URL = 'http://127.0.0.1:9999/authorize_callback'
 SCOPES = ['identity']
-EXPIRY_DURATION = 3600
+EXPIRY_DURATION = 3500
 
 
 class PrawOAuth2Mini:

@@ -5,6 +5,7 @@ import webbrowser
 import tornado.ioloop
 import tornado.web
 
+__all__ = ['PrawOAuth2Server']
 
 REDIRECT_URL = 'http://127.0.0.1:65010/authorize_callback'
 SCOPES = ['identity']
