@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import praw
 from prawoauth2 import PrawOAuth2Server
 
