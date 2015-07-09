@@ -55,7 +55,7 @@ class PrawOAuth2Mini:
         return self.reddit_client.refresh_access_information(
             self.refresh_token)
 
-    def refesh(self):
+    def refresh(self):
         if self._is_token_expired():
             tokens = self._get_refresh_access()
             self.access_token = tokens['access_token']
