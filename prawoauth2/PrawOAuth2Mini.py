@@ -49,7 +49,7 @@ class PrawOAuth2Mini:
         try:
             self._set_access_credentials()
         except praw.errors.OAuthInvalidToken:
-            self.refesh()
+            self.refresh()
 
     def _get_refresh_access(self):
         return self.reddit_client.refresh_access_information(
