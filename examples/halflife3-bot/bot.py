@@ -23,4 +23,4 @@ while True:
         half_life_loop()
     except praw.errors.OAuthInvalidToken:
         # token expired, refresh 'em!
-        oauth_helper.refesh()
+        oauth_helper.refresh()
