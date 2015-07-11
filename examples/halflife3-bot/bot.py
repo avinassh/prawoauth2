@@ -3,13 +3,13 @@
 import praw
 from prawoauth2 import PrawOAuth2Mini
 
-from tokens import app_key, app_secret, access_token
+from tokens import app_key, app_secret, access_token, refresh_token
 from settings import scopes, user_agent
 
 reddit_client = praw.Reddit(user_agent=user_agent)
 oauth_helper = PrawOAuth2Mini(reddit_client, app_key=app_key,
                               app_secret=app_secret, access_token=access_token,
-                              scopes=scopes)
+                              scopes=scopes, refresh_token=refresh_token)
 
 
 def half_life_loop():

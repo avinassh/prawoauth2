@@ -15,7 +15,7 @@ class PrawOAuth2Mini:
 
     def __init__(self, reddit_client, app_key,
                  app_secret, access_token,
-                 refresh_token='', scopes=SCOPES,
+                 refresh_token, scopes=SCOPES,
                  redirect_url=REDIRECT_URL):
         self.reddit_client = reddit_client
         self.app_key = app_key
