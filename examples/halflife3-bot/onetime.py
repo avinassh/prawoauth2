@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# import os
+
 import praw
 from prawoauth2 import PrawOAuth2Server
 
@@ -14,4 +16,9 @@ oauthserver = PrawOAuth2Server(reddit_client, app_key=app_key,
 # start the server, this will open default web browser
 # asking you to authenticate
 oauthserver.start()
-print(oauthserver.get_access_codes())
+tokens = oauthserver.get_access_codes()
+print(tokens)
+
+# may be set the env variables here only?
+# os.environ['HL3_ACCESS_TOKEN'] = tokens['access_token']
+# os.environ['HL3_REFRESH_TOKEN'] = tokens['refresh_token']
