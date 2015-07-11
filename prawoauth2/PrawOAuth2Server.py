@@ -39,13 +39,14 @@ class PrawOAuth2Server:
         self._set_app_info()
 
     def _set_app_info(self):
-        self.reddit_client.set_oauth_app_info(self.app_key, self.app_secret,
-                                              self.redirect_url)
+        self.reddit_client.set_oauth_app_info(client_id=self.app_key,
+                                              client_secret=self.app_secret,
+                                              redirect_uri=self.redirect_url)
 
     def _get_auth_url(self):
-        return self.reddit_client.get_authorize_url(self.state,
-                                                    self.scopes,
-                                                    self.refreshable)
+        return self.reddit_client.get_authorize_url(
+            state=self.state, scope=self.scopes,
+            refreshable=self.refreshable)
 
     def start(self):
         global CODE
@@ -55,7 +56,7 @@ class PrawOAuth2Server:
         self.code = CODE
 
     def get_access_codes(self):
-        return self.reddit_client.get_access_information(self.code)
+        return self.reddit_client.get_access_information(code=self.code)
 
 application = tornado.web.Application([
     (r'/authorize_callback', AuthorizationHandler),

@@ -36,13 +36,14 @@ class PrawOAuth2Mini:
         return time.time() > self.validity
 
     def _set_app_info(self):
-        self.reddit_client.set_oauth_app_info(self.app_key, self.app_secret,
-                                              self.redirect_url)
+        self.reddit_client.set_oauth_app_info(client_id=self.app_key,
+                                              client_secret=self.app_secret,
+                                              redirect_uri=self.redirect_url)
 
     def _set_access_credentials(self):
-        self.reddit_client.set_access_credentials(self.scopes,
-                                                  self.access_token,
-                                                  self.refresh_token)
+        self.reddit_client.set_access_credentials(
+            scope=self.scopes, access_token=self.access_token,
+            refresh_token=self.refresh_token)
         self._set_validity()
 
     def _set_access_credentials_first_time(self):
@@ -53,7 +54,7 @@ class PrawOAuth2Mini:
 
     def _get_refresh_access(self):
         return self.reddit_client.refresh_access_information(
-            self.refresh_token)
+            refresh_token=self.refresh_token)
 
     def refresh(self):
         if self._is_token_expired():
