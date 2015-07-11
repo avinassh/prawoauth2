@@ -13,6 +13,7 @@ oauth_helper = PrawOAuth2Mini(reddit_client, app_key=app_key,
 
 
 def half_life_loop():
+    oauth_helper.refresh()
     for comment in reddit_client.get_comments('all'):
         if 'half life' in comment.body.lower():
             print('shit, someone mentioned Half Life 3 again :@')
