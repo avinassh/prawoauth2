@@ -82,7 +82,7 @@ Check the `examples` directory for examples.
 ## Bots using `prawoauth2`
 
 - [Goodreads Bot](https://github.com/avinassh/Reddit-GoodReads-Bot)
-- [Samacharbot2](https://github.com/HunkDivine/samacharbot2)
+- [Samacharbot2](https://github.com/HunkDivine/samacharbot2) 
 
 Feel free to fork and add link to your bot/project.
 
