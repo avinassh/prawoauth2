@@ -17,6 +17,31 @@ class PrawOAuth2Mini:
                  app_secret, access_token,
                  refresh_token, scopes=SCOPES,
                  redirect_url=REDIRECT_URL):
+        """Creates a `PrawOAuth2Mini` instance. `PrawOAuth2Mini` meant to be
+        used in the bot and it needs valid `access_token` and `refresh_token`
+        to operate. Once the `access_token` is expired, it will be refreshed
+        using the `refresh_token`
+
+        :param reddit_client: An Instance of praw
+        :param app_key: App Secret (or also known as Client Id) of your
+            app. Find them here: https://www.reddit.com/prefs/apps/
+        :param app_secret: App Key (or also known as Client Secret) of your
+            app. Find them here: https://www.reddit.com/prefs/apps/
+        :param access_token: Once you have authorized your Reddit account with
+            the app/bot/script using `PrawOAuth2Server`, you get a valid
+            `access_token` (which expires after 60 minutes).
+        :param refresh_token: Once you have authorized your Reddit account with
+            the app/bot/script using `PrawOAuth2Server`, you get a valid
+            `refresh_token`.
+        :param scopes: List of scopes for OAuth. Default is `['identity']`.
+            https://praw.readthedocs.org/en/latest/pages/oauth.html#oauth-scopes
+        :param redirect_url: Redirect URL used in authorization process using
+            `PrawOAuth2Server`. Default is `http://127.0.0.1:9999/authorize_callback` 
+            (which is recommended by praw).
+
+        Make sure you provide same `scopes` and `redirect_url` which you used
+        with `PrawOAuth2Server`.
+        """
         self.reddit_client = reddit_client
         self.app_key = app_key
         self.app_secret = app_secret
@@ -56,8 +81,16 @@ class PrawOAuth2Mini:
         return self.reddit_client.refresh_access_information(
             refresh_token=self.refresh_token)
 
-    def refresh(self):
-        if self._is_token_expired():
+    def refresh(self, force=False):
+        """Refreshes the `access_token` and sets the praw instance `reddit_client`
+        with a valid one.
+
+        :param force: Boolean. Refresh will be done only when last refresh was
+            done before `EXPIRY_DURATION`, which is 3500 seconds. However
+            passing `force` will overrides this and refresh operation will be
+            done everytime.
+        """
+        if self._is_token_expired() or force:
             tokens = self._get_refresh_access()
             self.access_token = tokens['access_token']
             self.refresh_token = tokens['refresh_token']
