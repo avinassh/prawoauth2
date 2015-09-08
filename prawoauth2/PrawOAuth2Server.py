@@ -7,6 +7,7 @@ import tornado.web
 
 __all__ = ['PrawOAuth2Server']
 
+application = None
 REDIRECT_URL = 'http://127.0.0.1:65010/authorize_callback'
 SCOPES = ['identity']
 REFRESHABLE = True
@@ -49,6 +50,12 @@ class PrawOAuth2Server:
             use `PrawOAuth2Server` again to generate new `access_token`.
             Default is `True`.
         """
+        
+        application = tornado.web.Application([
+            (r'/authorize_callback', AuthorizationHandler),
+        ])
+        application.listen(65010)
+        
         self.reddit_client = reddit_client
         self.app_key = app_key
         self.app_secret = app_secret
@@ -90,8 +97,3 @@ class PrawOAuth2Server:
         :returns: A dictionary containing `access_token` and `refresh_token`.
         """
         return self.reddit_client.get_access_information(code=self.code)
-
-application = tornado.web.Application([
-    (r'/authorize_callback', AuthorizationHandler),
-])
-application.listen(65010)
