@@ -95,3 +95,11 @@ class PrawOAuth2Mini:
             self.access_token = tokens['access_token']
             self.refresh_token = tokens['refresh_token']
             self._set_access_credentials()
+
+    def get_access_codes(self):
+        """Returns the `access_token` and `refresh_token`.
+
+        :returns: A dictionary containing `access_token` and `refresh_token`.
+        """
+        return {'access_token': self.access_token,
+                'refresh_token': self.refresh_token}

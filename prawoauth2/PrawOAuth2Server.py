@@ -50,12 +50,12 @@ class PrawOAuth2Server:
             use `PrawOAuth2Server` again to generate new `access_token`.
             Default is `True`.
         """
-        
+
         application = tornado.web.Application([
             (r'/authorize_callback', AuthorizationHandler),
         ])
         application.listen(65010)
-        
+
         self.reddit_client = reddit_client
         self.app_key = app_key
         self.app_secret = app_secret
