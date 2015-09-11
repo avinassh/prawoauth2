@@ -7,7 +7,7 @@ import praw
 __all__ = ['PrawOAuth2Mini']
 
 REDIRECT_URL = 'http://127.0.0.1:9999/authorize_callback'
-SCOPES = ['identity']
+SCOPES = ['identity', 'read']
 EXPIRY_DURATION = 3500
 
 

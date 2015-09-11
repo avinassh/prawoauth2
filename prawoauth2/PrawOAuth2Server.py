@@ -9,7 +9,7 @@ __all__ = ['PrawOAuth2Server']
 
 application = None
 REDIRECT_URL = 'http://127.0.0.1:65010/authorize_callback'
-SCOPES = ['identity']
+SCOPES = ['identity', 'read']
 REFRESHABLE = True
 CODE = None
 
