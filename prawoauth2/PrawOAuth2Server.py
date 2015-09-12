@@ -50,12 +50,6 @@ class PrawOAuth2Server:
             use `PrawOAuth2Server` again to generate new `access_token`.
             Default is `True`.
         """
-
-        application = tornado.web.Application([
-            (r'/authorize_callback', AuthorizationHandler),
-        ])
-        application.listen(65010)
-
         self.reddit_client = reddit_client
         self.app_key = app_key
         self.app_secret = app_secret
@@ -66,11 +60,19 @@ class PrawOAuth2Server:
         self.code = None
 
         self._set_app_info()
+        self._set_up_tornado()
 
     def _set_app_info(self):
         self.reddit_client.set_oauth_app_info(client_id=self.app_key,
                                               client_secret=self.app_secret,
                                               redirect_uri=self.redirect_url)
+
+    def _set_up_tornado(self):
+        global application
+        application = tornado.web.Application([
+            (r'/authorize_callback', AuthorizationHandler),
+        ])
+        application.listen(65010)
 
     def _get_auth_url(self):
         return self.reddit_client.get_authorize_url(
