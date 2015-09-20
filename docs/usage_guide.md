@@ -1,4 +1,4 @@
-## Usage
+## Usage Guide
 
 ### Running `PrawOAuth2Server`
 
@@ -22,7 +22,7 @@ For first time, as I mentioned earlier, you need to fetch the `access_token` and
         user_agent = 'some string that uniquely identifies my bot'
         reddit_client = praw.Reddit(user_agent=user_agent)
 
-3. Scopes specify what all permissions your app (or bot script) needs from user's Reddit account(or your bot account), like read private messages, spend gold credits etc. You can read about different scopes on praw's [official documentation](https://praw.readthedocs.org/en/stable/pages/oauth.html#oauth-scopes). Make sure you get the scopes correct or else your bot will fail. For example, if you want your bot to be able to make comments then it must have `submit` scope, along with with `identity` and `read`. Check the examples directory for to see how I am managing it. You need to send `scopes` param to `PrawOAuth2Server` (and also to `PrawOAuth2Mini`) and it is a list containing scopes:
+3. Scopes specify what all permissions your app (or bot script) needs from user's Reddit account(or your bot account), like read private messages, spend gold credits etc. You can read about different scopes on praw's [official documentation](https://praw.readthedocs.org/en/stable/pages/oauth.html#oauth-scopes). Make sure you get the scopes correct or else your bot will fail. For example, if you want your bot to be able to make comments then it must have `submit` scope, along with with `identity` and `read`. Check the [examples directory](https://github.com/avinassh/prawoauth2/tree/master/examples) for to see how I am managing it. You need to send `scopes` param to `PrawOAuth2Server` (and also to `PrawOAuth2Mini`) and it is a list containing scopes:
 
         scopes = ['identity', 'read', 'submit']
 
@@ -48,7 +48,7 @@ For first time, as I mentioned earlier, you need to fetch the `access_token` and
 
 ### Using `PrawOAuth2Mini`
 
-`PrawOAuth2Mini` will be used in your main bot script always (unlike `PrawOAuth2Server`). It basically does two operations. First, it sets the praw instance with all the required credentials required for OAuth operation. The `access_token` expires for every 60 minutes (this is set by Reddit), so you can do `refresh` operation to get the new tokens. You don't really need to keep track of expiry time, when the tokens are expired, `OAuthInvalidToken` exception will be thrown. Catch it and do `refresh`. On the other hand, you can call the `refresh` before every operation, however it will get you new tokens only when old ones are about to expire. Check the `examples` directory to see how I am handling it.
+`PrawOAuth2Mini` will be used in your main bot script always (unlike `PrawOAuth2Server`). It basically does two operations. First, it sets the praw instance with all the required credentials required for OAuth operation. The `access_token` expires for every 60 minutes (this is set by Reddit), so you can do `refresh` operation to get the new tokens. You don't really need to keep track of expiry time, when the tokens are expired, `OAuthInvalidToken` exception will be thrown. Catch it and do `refresh`. On the other hand, you can call the `refresh` before every operation, however it will get you new tokens only when old ones are about to expire. Check the [`examples` directory](https://github.com/avinassh/prawoauth2/tree/master/examples) to see how I am handling it.
 
 1. Just create an instance of `PrawOAuth2Mini` with all the required parameters:
     
@@ -61,4 +61,4 @@ For first time, as I mentioned earlier, you need to fetch the `access_token` and
 
         oauth_helper.refresh()
 
-Check the `examples` directory for examples.
+Check the [`examples` directory](https://github.com/avinassh/prawoauth2/tree/master/examples) for examples.
