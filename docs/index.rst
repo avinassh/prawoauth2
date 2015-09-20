@@ -17,6 +17,6 @@ using OAuth2 super easy and simple.
 .. this is a hack. I would like to have everything after section `Installation`
    but rst/Sphinx does not support including some section.
 
-.. include:: readme.rst
+.. include:: ../README.rst
     :start-after: pip install prawoauth2
 

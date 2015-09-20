@@ -6,6 +6,12 @@ prawoauth2
 ``prawoauth2`` is a helper library which makes writing Reddit bots/apps
 using OAuth2 super easy and simple.
 
+Documentation
+-------------
+
+``prawoauth2`` comes with extensive documentation and is available on `Read The Docs <http://prawoauth2.readthedocs.org/>`__
+
+
 Installation
 ------------
 
