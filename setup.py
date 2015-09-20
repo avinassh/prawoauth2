@@ -8,7 +8,7 @@ with open('README.rst') as f:
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
-version = '0.2'
+version = '0.2.1'
 
 setup(
     name='prawoauth2',

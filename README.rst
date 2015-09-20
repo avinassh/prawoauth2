@@ -48,7 +48,7 @@ were very helpful.
 `Reddit <https://www.reddit.com/r/redditdev/comments/3bipzt/help_with_oauth/>`__
 `threads <https://www.reddit.com/r/redditdev/comments/197x36/using_oauth_to_send_valid_requests/>`__
 `also <https://www.reddit.com/r/redditdev/comments/2ujhkr/important_api_licensing_terms_clarified/>`__
-helped me lot.
+helped me lot. Most of text in `Installation` is copied from `Python Requests <http://www.python-requests.org/en/latest/user/install/>`__. Github user `qevo <https://github.com/qevo>`__ has `helped <https://www.reddit.com/r/learnpython/comments/3en8ai/how_do_i_generate_documentation_for_my_library/cuvzxrh>`__ me generating docs.
 
 First I started using ``praw-OAuth2Util``, but I really did not like the
 way it was handling configurations and tokens. So, I
