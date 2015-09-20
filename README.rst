@@ -24,6 +24,11 @@ Bots using ``prawoauth2``
 
 -  `Goodreads Bot <https://github.com/avinassh/Reddit-GoodReads-Bot>`__
 -  `Samacharbot2 <https://github.com/HunkDivine/samacharbot2>`__
+-  `GfyBot <https://github.com/skylarmb/GfyBot>`__
+-  `GiantBombSidebar <https://github.com/SDFortier/GiantBombSidebar>`__
+-  `Not Max Trollbot <https://github.com/blendermf/not-max-trollbot>`__
+-  `EnhanceImageBot <https://github.com/Sprunth/EnhanceImageBot-reddit>`__
+-  `BB Reddit Automod <https://github.com/digitalmonarch/bb-reddit-automod>`__
 
 Feel free to fork and add link to your bot/project.
 
