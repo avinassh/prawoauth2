@@ -60,6 +60,8 @@ And make use of these in your script:
 
 ### When to use `refresh`
 
+**NOTE**: This section is irrelevant if you are using latest version of `prawoauth2`.
+
 The `access_token` expires for every 60 minutes (this is set by Reddit), so you can do `refresh` operation to get the new tokens. You don't really need to keep track of expiry time, when the tokens are expired, `OAuthInvalidToken` exception will be thrown. Catch it and do `refresh`. 
 
     try:

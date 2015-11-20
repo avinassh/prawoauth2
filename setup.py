@@ -8,7 +8,7 @@ with open('README.rst') as f:
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
-version = '0.2.1'
+version = '0.3'
 
 setup(
     name='prawoauth2',
@@ -24,7 +24,7 @@ setup(
     description='Library to make your life easier using OAuth2 for PRAW',
     long_description=long_description,
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'License :: OSI Approved :: MIT License',
         'Operating System :: POSIX',
         'Intended Audience :: Developers',
