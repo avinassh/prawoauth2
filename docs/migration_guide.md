@@ -2,7 +2,7 @@
 
 If you have an existing Reddit bot and if you wish to migrate to OAuth2, follow the simple steps.
 
-1. Stop using `praw.login`. Your current code probably uses Reddit account (your's or your bot's) username and password with `praw.login` and you have to remove that. With OAuth2, there should NO references to Reddit username and password in your code:
+1. Stop using `praw.login`. Your current code probably uses Reddit account (your's or your bot's) username and password with `praw.login` and you have to remove that. With OAuth2, there should be NO references to Reddit username and password in your code:
 
         reddit_client = praw.Reddit(user_agent=user_agent)
         reddit_client.login(reddit_username, reddit_password)
